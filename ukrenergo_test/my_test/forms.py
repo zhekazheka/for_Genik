@@ -12,9 +12,11 @@ class CvsForm(forms.Form):
         f = io.TextIOWrapper(self.cleaned_data['data_file'].file)
         reader = csv.DictReader(f)
         print(reader)
-        next(reader)
-        for i in reader:
-            print(i)
+        for row in reader:
+            
+            for val in row.values():
+                print(val)
+            # CvsModel.objects.update_or_create(
 
     # def csv_file(self, *args, **kwargs):
     #     file = self.cleaned_data.get('file')
