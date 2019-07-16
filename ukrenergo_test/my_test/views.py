@@ -5,20 +5,23 @@ from .models import CvsModel
 import csv
 import io
 from django.contrib.auth.decorators import login_required
+from django import views
 
 
 def home_view(request):
     return render(request, 'home.html')
 
+# @login_required(login_url='/login') 
+class CsvClassView(views.generic.edit.FormView):
+    template_name = 'upload.html'
+    form_class = CvsForm
+    success_url = 'some.html'
 
-@login_required(login_url='/login')
-def upload_view(request):
-    form_class = CvsForm()
-
+    
     def form_valid(self, form):
         form.process_data()
         return super().form_valid(form)
-    return render(request, 'upload.html')
+
 
 # @login_required(login_url='/login')
 # def upload_view(request):

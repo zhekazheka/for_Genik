@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LoginView
-from my_test.views import home_view, upload_view
+from my_test.views import home_view, CsvClassView
 
 urlpatterns = [
     path('', home_view),
-    path('upload/', upload_view, name='upload'),
+    path('upload/',CsvClassView.as_view()),
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view(), name='login')
 ]

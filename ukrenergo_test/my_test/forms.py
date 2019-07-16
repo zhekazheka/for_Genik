@@ -12,7 +12,7 @@ class CvsForm(forms.Form):
         f = io.TextIOWrapper(self.cleaned_data['data_file'].file)
         reader = csv.DictReader(f)
         print(reader)
-
+        next(reader)
         for i in reader:
             print(i)
 
