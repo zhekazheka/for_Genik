@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Upload{% endblock %}
+
+{% block content %}
+<!-- {% if messages %}
+    {% for message in messages %}
+        <div>
+            <strong>{{ message|safe }}</strong>
+        </div>
+    {% endfor %}
+{% else %}
+    {{ order }}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Upload a file</label>
+        <input type="file" name="file">
+        <p>Only CSV file</p>
+        <button type="submit">Upload</button>
+    </form>
+{% endif %} -->
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <!-- <label>Upload a file</label>
+    <input type="file" name="file">
+    <p>Only accepts CVS files</p> -->
+    <button type="submit">Upload</button>
+</form>
+
+{% endblock %}
