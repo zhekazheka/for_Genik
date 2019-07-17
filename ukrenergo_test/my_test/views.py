@@ -9,9 +9,6 @@ from django.utils.decorators import method_decorator
 from django import views
 
 
-def home_view(request):
-    return render(request, 'home.html')
-
 @method_decorator(login_required(login_url='/login'), name='dispatch')
 class CsvClassView(views.generic.edit.FormView):
     template_name = 'upload.html'
