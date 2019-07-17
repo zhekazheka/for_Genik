@@ -20,7 +20,7 @@ from my_test.views import home_view, CsvClassView
 
 urlpatterns = [
     path('', home_view),
-    path('upload/',CsvClassView.as_view()),
+    path('upload/', CsvClassView.as_view()),
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view(), name='login')
 ]
