@@ -19,6 +19,7 @@
         <button type="submit">Upload</button>
     </form>
 {% endif %} -->
+<h3>Hi {{ user.username }}! Upload your CSV file</h3>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}

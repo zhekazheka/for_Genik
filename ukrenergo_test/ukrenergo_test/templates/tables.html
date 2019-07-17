@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load index %}
+{% block title %}Tables{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<h1>Tables View</h1>
+{% if alphaA_values and alphaB_values %}
+    <h3>Alpha A</h3>
+    <table style="border:1px solid black">
+        {% for item in range.0 %}
+            <td style='border:1px solid black'>{{alphaA_values|index:item}}</td>
+        {% endfor %}
+    </table>
+    <h3>Alpha B</h3>
+    <table style="border:1px solid black">
+        {% for item in range.1 %}
+            <td style='border:1px solid black'>{{alphaB_values|index:item}}</td>
+        {% endfor %}
+    </table>
+    <h3>Unique</h3>
+    <table style="border:1px solid black">
+        {% for item in unique %}
+            <td style='border:1px solid black'>{{item}}</td>
+        {% endfor %}
+    </table>
+{% else %}
+    <h3>No data</h3>
+{% endif %}
+{% endblock %}
