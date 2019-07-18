@@ -5,6 +5,7 @@
 
   <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
+    <h3>Please log in</h3>
     {{ form.username.label_tag }}
     {{ form.username }}
 

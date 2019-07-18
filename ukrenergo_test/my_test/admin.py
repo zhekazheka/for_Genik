@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import CvsModel
 
-# Register your models here.
+admin.site.register(CvsModel)
