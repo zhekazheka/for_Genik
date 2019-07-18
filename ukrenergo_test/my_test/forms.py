@@ -6,13 +6,13 @@ import io
 
 class CvsForm(forms.Form):
     '''
-    Form for uploading, parsing and checking is it valid .csv file
+    Form for uploading, parsing and checking validity of the .csv file
     '''
     data_file = forms.FileField(label='')
 
     def clean_data_file(self):
         '''
-        Method for checking is it valid .csv file
+        Method for checking if .csv file is valid
         '''
         f = self.cleaned_data['data_file']
 
@@ -32,7 +32,7 @@ class CvsForm(forms.Form):
             # removes all rows from the table
             CvsModel.objects.all().delete()
 
-            # populate the database with parsed data
+            # populates the database with parsed data
             for row in reader:
                 for key in row.keys():
                     if key == 'Variable':
@@ -43,4 +43,4 @@ class CvsForm(forms.Form):
                         value=row[key]
                     )
         except csv.Error:
-            raise forms.ValidationError('Your CSV is not valid')
+            raise forms.ValidationError('Your CSV file is not valid')
